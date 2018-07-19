@@ -20,6 +20,10 @@ function spa_enqueue_scripts(){
 		true
 	);
 
+	wp_localize_script('spa_bundle','wp_rest_api',[
+		'base_url'  => home_url('/wp-json/wp/v2/')
+	]);
+
 	wp_enqueue_script('jquery');
 	wp_enqueue_script('spa_bootstrap');
 	wp_enqueue_script('spa_bundle');
