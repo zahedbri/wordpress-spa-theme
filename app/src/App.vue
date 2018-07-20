@@ -6,7 +6,7 @@
 
       <div class="col-sm-8 col-sm-offset-2">
 
-        <app-post-excerpt v-for="post in posts"></app-post-excerpt>
+        <app-post-excerpt v-for="post in posts" :key="post.id" :post="post"></app-post-excerpt>
 
 
         <nav>
