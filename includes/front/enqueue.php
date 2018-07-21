@@ -29,7 +29,10 @@ function spa_enqueue_scripts(){
 	);
 
 	wp_localize_script('spa_bundle','wp_rest_api',[
-		'base_url'  => home_url('/wp-json/wp/v2/')
+		'base_url'  => home_url('/wp-json/wp/v2/'),
+		'spa_url'   =>home_url('/wp-json/spa/v1/'),
+		'site_name' => get_bloginfo('name'),
+		'footer_text'   => get_theme_mod('spa_footer_text')
 	]);
 
 	wp_enqueue_script('jquery');

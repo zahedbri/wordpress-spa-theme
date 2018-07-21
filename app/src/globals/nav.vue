@@ -9,18 +9,13 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Single Page Application</a>
+        <a class="navbar-brand" href="#">{{ site_name }}</a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li><a href="#">Link</a></li>
-          <li><a href="#">Link</a></li>
-          <li><a href="#">Link</a></li>
-          <li><a href="#">Link</a></li>
-          <li><a href="#">Link</a></li>
-          <li><a href="#">Link</a></li>
+          <li v-for="item in menu_items"><a :href="item.url">{{ item.title }}</a></li>
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -30,7 +25,19 @@
 
 <script>
     export default {
-        name: "nav"
+      name: "nav",
+      data:function () {
+        return {
+          menu_items:[],
+          site_name: wp_rest_api.site_name,
+
+        }
+      },
+      mounted: function () {
+        jQuery.get(wp_rest_api.spa_url + 'menus/primary').always((response)=>{
+          this.menu_items = response;
+        });
+      }
     }
 </script>
 

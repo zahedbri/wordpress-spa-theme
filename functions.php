@@ -9,6 +9,7 @@ include( get_template_directory() . '/includes/front/enqueue.php' );
 include( get_template_directory() . '/includes/customizer.php' );
 include( get_template_directory() . '/includes/api/api.php' );
 include( get_template_directory() . '/includes/api/post.php' );
+include( get_template_directory() . '/includes/api/menus.php');
 
 // Hooks
 add_action( 'wp_enqueue_scripts', 'spa_enqueue_scripts' );

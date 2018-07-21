@@ -1,6 +1,6 @@
 <template>
   <footer class="container text-center">
-    <p>Blog template built for <a href="http://getbootstrap.com">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+    <p>{{ footer_text }}</p>
     <p>
       <a href="#">Back to top</a>
     </p>
@@ -9,7 +9,12 @@
 
 <script>
     export default {
-        name: "footer"
+      name: "footer",
+      data: function () {
+        return {
+          footer_text: wp_rest_api.footer_text
+        }
+      }
     }
 </script>
 

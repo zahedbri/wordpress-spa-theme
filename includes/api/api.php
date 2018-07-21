@@ -10,4 +10,23 @@ function spa_rest_api_init(){
 			'schema'            =>null
 		]
 	);
+
+	register_rest_route(
+		'spa/v1',
+		'/menus',
+		[
+			'methods'=>'GET',
+			'callback'=> 'spa_menus_get_all_menus'
+		]
+	);
+
+	//THe more specific the rou
+	register_rest_route(
+		'spa/v1',
+		'/menus/(?P<id>[a-zA-Z(-]+)',
+		[
+			'methods'=>'GET',
+			'callback'=> 'spa_menus_get_menu_data'
+		]
+	);
 }
